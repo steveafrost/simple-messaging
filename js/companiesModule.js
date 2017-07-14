@@ -1,26 +1,27 @@
 (function() {
-  var request = new XMLHttpRequest();
-  request.open('GET', '../data/companies.json', true);
 
-  request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
-      // Success!
-      var data = JSON.parse(request.responseText);
-      var companyField = document.getElementById('companyField');
+  var companies = {
+    init: function() {
+      this.cacheDom();
+      this.loadCompanies();
+    },
+    cacheDom: function() {
+      this.companyField = $('#companyField');
+    },
+    loadCompanies: function() {
+      var that = this;
 
-      data.forEach(function(item, i){
-        companyField.options[i + 1] = new Option(item.company, item.company);
+      var request = $.get('../data/companies.json');
+      request.done(function(data) {
+        $.each(data, function(i, company) {
+          that.companyField.append($('<option>', {
+            value: company,
+            text: company.company
+          }));
+        });
       });
-
-    } else {
-      alert("Please notify Steve. He'll help. He likes helping.");
     }
-  };
+  }
 
-  request.onerror = function() {
-    // There was a connection error of some sort
-    console.log("There was an error loading the JSON file.")
-  };
-
-  request.send();
+  companies.init();
 })();

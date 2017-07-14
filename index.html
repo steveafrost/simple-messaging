@@ -18,14 +18,7 @@
 
           <label for="guestField">Guest</label>
           <select id="guestField">
-            <script id="guest-template" type="text/template">
-              <option value="Select Guest">Select Guest</option>
-              {{#current}}
-                <option>
-                  {{current}}
-                </option>
-              {{/current}}
-            </script>
+            <option value="Select Guest">Select Guest</option>
           </select>
 
           <label for="customField">Custom Message</label>
@@ -38,6 +31,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./js/companiesModule.js"></script>
     <script src="./js/guestsModule.js"></script>
   </body>
 </html>
