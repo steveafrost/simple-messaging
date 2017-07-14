@@ -20,11 +20,11 @@
           <select id="guestField">
             <script id="guest-template" type="text/template">
               <option value="Select Guest">Select Guest</option>
-              {{#guests}}
+              {{#current}}
                 <option>
-                  {{.}}
+                  {{current}}
                 </option>
-              {{/guests}}
+              {{/current}}
             </script>
           </select>
 

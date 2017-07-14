@@ -1,7 +1,7 @@
 (function() {
 
   var guests = {
-    guests: [],
+    current: [],
     init: function() {
       this.cacheDom();
       this.loadGuests();
@@ -12,21 +12,20 @@
       this.template = $('#guest-template').html();
     },
     render: function() {
-      console.log(this.guests);
-      this.guestField.html(Mustache.render(this.template, this.guests));
+      var data = {current: this.current}
+      console.log(data);
+      var rendered = Mustache.render(this.template, data);
+      this.guestField.html(rendered);
     },
     loadGuests: function() {
-      var request = $.get('../data/guests.json');
       var that = this;
+
+      var request = $.get('../data/guests.json');
       request.done(function(data) {
         $.each(data, function(i, guest) {
-          console.log(guest.firstName);
-          that.guests.push(guest.firstName);
+          that.current.push(guest);
         });
       });
-    },
-    setGuests: function(data) {
-
     }
   }
 
