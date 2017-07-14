@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Welcome",
+    "parameters": {
+      "time": {
+        "type": "integer"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "company": {
+        "type": "string"
+      },
+      "roomNumber": {
+        "type": "integer"
+      }
+    },
+  }
+]
