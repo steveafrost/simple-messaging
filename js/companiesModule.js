@@ -13,7 +13,7 @@
       request.done(function(data) {
         $.each(data, function(i, company) {
           this.$companyField.append($('<option>', {
-            value: company,
+            value: JSON.stringify(company),
             text: company.company
           }));
         }.bind(this));

@@ -14,7 +14,7 @@
         $.each(data, function(i, guest) {
           var fullName = guest.firstName + " " + guest.lastName
           this.$guestField.append($('<option>', {
-            value: guest,
+            value: JSON.stringify(guest),
             text: fullName
           }));
         }.bind(this));

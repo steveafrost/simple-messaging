@@ -7,18 +7,20 @@
       this.loadTemplates();
     },
     cacheDOM: function() {
-      this.$button = $('#submit');
+      this.$form = $('#simpleForm');
       this.$templateField = $('#templateField');
+      this.$companyField = $('#companyField');
+      this.$guestField = $('#guestField');
     },
     bindEvents: function() {
-      this.$button.on('click', this.populateTemplate);
+      this.$form.submit(this.populateTemplate.bind(this));
     },
     loadTemplates: function() {
       var request = $.get('../data/templates.json');
       request.done(function(data) {
         $.each(data, function(i, template) {
           this.$templateField.append($('<option>', {
-            value: template,
+            value: JSON.stringify(template),
             text: template.name
           }));
         }.bind(this));
@@ -26,7 +28,12 @@
     },
     populateTemplate: function(event) {
       event.preventDefault();
-      console.log("button clicked");
+
+      var template = JSON.parse(this.$templateField.val()),
+          company = JSON.parse(this.$companyField.val()),
+          guest = JSON.parse(this.$guestField.val());
+
+
     }
   }
 
