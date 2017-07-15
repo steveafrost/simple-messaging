@@ -1,6 +1,6 @@
 (function() {
 
-  var guests = {
+  var guestsModule = {
     init: function() {
       this.cacheDom();
       this.loadGuests();
@@ -24,5 +24,5 @@
     }
   }
 
-  guests.init();
+  guestsModule.init();
 })();

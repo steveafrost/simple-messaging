@@ -1,9 +1,9 @@
 (function() {
 
-  var templates = {
+  var templatesModule = {
     init: function() {
       this.cacheDOM();
-      this.bindEvents();
+      // this.bindEvents();
       this.loadTemplates();
     },
     cacheDOM: function() {
@@ -32,5 +32,5 @@
     }
   }
 
-  templates.init();
+  templatesModule.init();
 })();

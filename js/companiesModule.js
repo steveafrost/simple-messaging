@@ -1,6 +1,6 @@
 (function() {
 
-  var companies = {
+  var companiesModule = {
     init: function() {
       this.cacheDom();
       this.loadCompanies();
@@ -23,5 +23,5 @@
     }
   }
 
-  companies.init();
+  companiesModule.init();
 })();
