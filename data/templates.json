@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "name": "Checking In",
     "parameters": {
       "time": {
@@ -15,10 +15,10 @@
       "roomNumber": {
         "type": "integer"
       }
-    },
-  }
+    }
+  },
   {
-    "id": "2",
+    "id": 2,
     "name": "Restaurant Recommendations",
     "parameters": {
       "time": {
@@ -33,10 +33,10 @@
       "roomNumber": {
         "type": "integer"
       }
-    },
-  }
+    }
+  },
   {
-    "id": "3",
+    "id": 3,
     "name": "Checking Out",
     "parameters": {
       "time": {
@@ -51,6 +51,6 @@
       "roomNumber": {
         "type": "integer"
       }
-    },
+    }
   }
 ]
