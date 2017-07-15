@@ -11,23 +11,22 @@
       this.$templateField = $('#templateField');
     },
     bindEvents: function() {
-      this.$button.on('click', function(e) {
-        e.preventDefault();
-        console.log("button clicked");
-      })
+      this.$button.on('click', this.populateTemplate);
     },
     loadTemplates: function() {
-      var that = this;
-
       var request = $.get('../data/templates.json');
       request.done(function(data) {
         $.each(data, function(i, template) {
-          that.$templateField.append($('<option>', {
+          this.$templateField.append($('<option>', {
             value: template,
             text: template.name
           }));
-        });
-      });
+        }.bind(this));
+      }.bind(this));
+    },
+    populateTemplate: function(event) {
+      event.preventDefault();
+      console.log("button clicked");
     }
   }
 

@@ -9,17 +9,15 @@
       this.$companyField = $('#companyField');
     },
     loadCompanies: function() {
-      var that = this;
-
       var request = $.get('../data/companies.json');
       request.done(function(data) {
         $.each(data, function(i, company) {
-          that.$companyField.append($('<option>', {
+          this.$companyField.append($('<option>', {
             value: company,
             text: company.company
           }));
-        });
-      });
+        }.bind(this));
+      }.bind(this));
     }
   }
 
