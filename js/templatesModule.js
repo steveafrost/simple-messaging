@@ -1,9 +1,9 @@
 (function() {
 
-  var templatesModule = {
+  var templates = {
     init: function() {
       this.cacheDOM();
-      // this.bindEvents();
+      this.bindEvents();
       this.loadTemplates();
     },
     cacheDOM: function() {
@@ -11,7 +11,7 @@
       this.$templateField = $('#templateField');
     },
     bindEvents: function() {
-      this.$button.click(function(e) {
+      this.$button.on('click', function(e) {
         e.preventDefault();
         console.log("button clicked");
       })
@@ -22,7 +22,6 @@
       var request = $.get('../data/templates.json');
       request.done(function(data) {
         $.each(data, function(i, template) {
-          console.log("this is the each loop")
           that.$templateField.append($('<option>', {
             value: template,
             text: template.name
@@ -32,5 +31,5 @@
     }
   }
 
-  templatesModule.init();
+  templates.init();
 })();
