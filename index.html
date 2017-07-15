@@ -11,27 +11,35 @@
 
       <form>
         <fieldset>
+          <label for="templateField">Template</label>
+          <select id="templateField">
+            <option value="template">Select Template</option>
+          </select>
+
           <label for="companyField">Company</label>
           <select id="companyField">
-            <option value="Select Company">Select Company</option>
+            <option value="company">Select Company</option>
           </select>
 
           <label for="guestField">Guest</label>
           <select id="guestField">
-            <option value="Select Guest">Select Guest</option>
+            <option value="guest">Select Guest</option>
           </select>
 
-          <label for="customField">Custom Message</label>
-          <textarea id="customField" cols="30" rows="10"></textarea>
+          <label for="customField" class="hidden">Custom Message</label>
+          <textarea id="customField" cols="30" rows="10" class="hidden"></textarea>
 
-          <input type="submit" value="Send Message" class="button-primary">
+          <input type="submit" value="Send Message" id="submit" class="button-primary">
         </fieldset>
       </form>
+
+      <p id="message"></p>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./js/companiesModule.js"></script>
     <script src="./js/guestsModule.js"></script>
+    <script src="./js/templatesModule.js"></script>
   </body>
 </html>

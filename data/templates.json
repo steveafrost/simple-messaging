@@ -1,7 +1,43 @@
 [
   {
     "id": "1",
-    "name": "Welcome",
+    "name": "Checking In",
+    "parameters": {
+      "time": {
+        "type": "integer"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "company": {
+        "type": "string"
+      },
+      "roomNumber": {
+        "type": "integer"
+      }
+    },
+  }
+  {
+    "id": "2",
+    "name": "Restaurant Recommendations",
+    "parameters": {
+      "time": {
+        "type": "integer"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "company": {
+        "type": "string"
+      },
+      "roomNumber": {
+        "type": "integer"
+      }
+    },
+  }
+  {
+    "id": "3",
+    "name": "Checking Out",
     "parameters": {
       "time": {
         "type": "integer"

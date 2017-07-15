@@ -6,7 +6,7 @@
       this.loadGuests();
     },
     cacheDom: function() {
-      this.guestField = $('#guestField');
+      this.$guestField = $('#guestField');
     },
     loadGuests: function() {
       var that = this;
@@ -15,7 +15,7 @@
       request.done(function(data) {
         $.each(data, function(i, guest) {
           var fullName = guest.firstName + " " + guest.lastName
-          that.guestField.append($('<option>', {
+          that.$guestField.append($('<option>', {
             value: guest,
             text: fullName
           }));
