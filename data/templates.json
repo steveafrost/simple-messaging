@@ -2,18 +2,18 @@
   {
     "id": 1,
     "name": "Checking In",
-    "message": "#greeting #guest.firstName, and welcome to #company.company! Room #guest.reservation.roomNumber is now ready for you. Enjoy your stay, and let us know if you need anything!",
+    "message": "#greeting #firstName, and welcome to #company! Room #roomNumber is now ready for you. Enjoy your stay, and let us know if you need anything!",
     "parameters": {
       "#greeting": {
         "type": "string"
       },
-      "#guest.firstName": {
+      "#firstName": {
         "type": "string"
       },
-      "#company.company": {
+      "#company": {
         "type": "string"
       },
-      "#guest.reservation.roomNumber": {
+      "#roomNumber": {
         "type": "integer"
       }
     }

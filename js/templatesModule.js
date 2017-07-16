@@ -14,7 +14,7 @@
       this.$messageArea = $('#message');
     },
     bindEvents: function() {
-      this.$form.submit(this.render.bind(this));
+      this.$form.submit(this.populateTemplate.bind(this));
     },
     loadTemplates: function() {
       var request = $.get('../data/templates.json');
@@ -38,21 +38,31 @@
         return "Good evening";
       };
     },
-    render: function(event) {
+    render: function(message) {
+      this.$messageArea.text(message);
+    },
+    populateTemplate: function(event) {
       event.preventDefault();
 
       var template = JSON.parse(this.$templateField.val()),
           company = JSON.parse(this.$companyField.val()),
-          guest = JSON.parse(this.$guestField.val()),
-          greeting = this.greeting(),
-          transform = template.message
+          guest = JSON.parse(this.$guestField.val());
+          greeting = this.greeting();
 
-      this.$messageArea.text(this.populateTemplate(template, company, guest, greeting));
-    },
-    populateTemplate: function(template, company, guest, greeting) {
-      $.each(template.parameters, function(parameter) {
-        console.log(parameter);
-      });
+      for(parameter in template.parameters) {
+        var trimmedParam = parameter.substring(1);
+
+        if(guest[trimmedParam]) {
+          template.message = template.message.replace(parameter, guest[trimmedParam]);
+        } else if (company[trimmedParam]) {
+          template.message = template.message.replace(parameter, company[trimmedParam]);
+        } else {
+          template.message = template.message.replace(parameter, greeting);
+        }
+
+      }
+
+      this.render(template.message)
     }
   }
 
