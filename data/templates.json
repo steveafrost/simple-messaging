@@ -2,17 +2,18 @@
   {
     "id": 1,
     "name": "Checking In",
+    "message": "#greeting #guest.firstName, and welcome to #company.company! Room #guest.reservation.roomNumber is now ready for you. Enjoy your stay, and let us know if you need anything!",
     "parameters": {
-      "time": {
-        "type": "integer"
-      },
-      "firstName": {
+      "#greeting": {
         "type": "string"
       },
-      "company": {
+      "#guest.firstName": {
         "type": "string"
       },
-      "roomNumber": {
+      "#company.company": {
+        "type": "string"
+      },
+      "#guest.reservation.roomNumber": {
         "type": "integer"
       }
     }
@@ -21,8 +22,8 @@
     "id": 2,
     "name": "Restaurant Recommendations",
     "parameters": {
-      "time": {
-        "type": "integer"
+      "greeting": {
+        "type": "string"
       },
       "firstName": {
         "type": "string"
@@ -39,8 +40,8 @@
     "id": 3,
     "name": "Checking Out",
     "parameters": {
-      "time": {
-        "type": "integer"
+      "greeting": {
+        "type": "string"
       },
       "firstName": {
         "type": "string"

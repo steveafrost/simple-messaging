@@ -14,7 +14,7 @@
       this.$messageArea = $('#message');
     },
     bindEvents: function() {
-      this.$form.submit(this.populateTemplate.bind(this));
+      this.$form.submit(this.render.bind(this));
     },
     loadTemplates: function() {
       var request = $.get('../data/templates.json');
@@ -38,19 +38,23 @@
         return "Good evening";
       };
     },
-    populateTemplate: function(event) {
+    render: function(event) {
       event.preventDefault();
 
       var template = JSON.parse(this.$templateField.val()),
           company = JSON.parse(this.$companyField.val()),
           guest = JSON.parse(this.$guestField.val()),
-          greeting = this.greeting();
+          greeting = this.greeting(),
+          transform = template.message
 
-      this.$messageArea.text(template.message)
+      this.$messageArea.text(this.populateTemplate(template, company, guest, greeting));
+    },
+    populateTemplate: function(template, company, guest, greeting) {
+      $.each(template.parameters, function(parameter) {
+        console.log(parameter);
+      });
     }
   }
-
-  // `${greeting} ${guest.firstName}, and welcome to ${company.company}! Room ${guest.reservation.roomNumber} is now ready for you. Enjoy your stay, and let us know if you need anything!`
 
   templates.init();
 })();
