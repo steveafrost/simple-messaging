@@ -27,16 +27,30 @@
         }.bind(this));
       }.bind(this));
     },
+    greeting: function() {
+      var currentTime = new Date().getHours();
+
+      if (currentTime < 12) {
+        return "Good morning";
+      } else if (currentTime < 16) {
+        return "Good afternoon";
+      } else {
+        return "Good evening";
+      };
+    },
     populateTemplate: function(event) {
       event.preventDefault();
 
       var template = JSON.parse(this.$templateField.val()),
           company = JSON.parse(this.$companyField.val()),
-          guest = JSON.parse(this.$guestField.val());
+          guest = JSON.parse(this.$guestField.val()),
+          greeting = this.greeting();
 
-      this.$messageArea.text(`{time of day here} ${guest.firstName}, and welcome to ${company.company}! Room ${guest.reservation.roomNumber} is now ready for you. Enjoy your stay, and let us know if you need anything!`)
+      this.$messageArea.text(template.message)
     }
   }
+
+  // `${greeting} ${guest.firstName}, and welcome to ${company.company}! Room ${guest.reservation.roomNumber} is now ready for you. Enjoy your stay, and let us know if you need anything!`
 
   templates.init();
 })();
