@@ -11,7 +11,8 @@
       this.$templateField = $('#templateField');
       this.$companyField = $('#companyField');
       this.$guestField = $('#guestField');
-      this.$customField = $('#customArea');
+      this.$customArea = $('#customArea');
+      this.$customField = $('#customField');
       this.$messageArea = $('#message');
     },
     bindEvents: function() {
@@ -46,7 +47,10 @@
     populateTemplate: function(event) {
       event.preventDefault();
 
-      if(this.$templateField.val() === "custom") { return };
+      if(this.$templateField.val() === "custom") {
+        this.render(this.$customField.val() + "<p id='note'>Note: guest & company info not populated with custom messages</p>");
+        return;
+      };
 
       var template = JSON.parse(this.$templateField.val()),
           company = JSON.parse(this.$companyField.val()),
@@ -71,9 +75,9 @@
     },
     toggleCustom: function(event) {
       if(event.target.value === "custom") {
-        this.$customField.show();
+        this.$customArea.show();
       } else {
-        this.$customField.hide();
+        this.$customArea.hide();
       }
     }
   };

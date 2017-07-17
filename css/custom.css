@@ -12,3 +12,8 @@ p#message {
   margin: 0 auto;
   text-align: center;
 }
+
+p#note {
+  margin-top: 2rem;
+  font-size: 0.75em;
+}
