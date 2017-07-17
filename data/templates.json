@@ -21,11 +21,8 @@
   {
     "id": 2,
     "name": "Restaurant Recommendations",
-    "message": "If you're looking for somewhere to eat #firstName, try out #company restaurant right downstairs in the lobby.",
+    "message": "If you're looking for somewhere to enjoy a delicious meal, try out #company restaurant right downstairs in the lobby.",
     "parameters": {
-      "#firstName": {
-        "type": "string"
-      },
       "#company": {
         "type": "string"
       }
