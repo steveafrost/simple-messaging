@@ -6,3 +6,9 @@ h1 {
 .hidden {
   display: none;
 }
+
+p#message {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}

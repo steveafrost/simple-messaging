@@ -11,10 +11,12 @@
       this.$templateField = $('#templateField');
       this.$companyField = $('#companyField');
       this.$guestField = $('#guestField');
+      this.$customField = $('#customArea');
       this.$messageArea = $('#message');
     },
     bindEvents: function() {
       this.$form.submit(this.populateTemplate.bind(this));
+      this.$templateField.change(this.toggleCustom.bind(this));
     },
     loadTemplates: function() {
       var request = $.get('../data/templates.json');
@@ -39,10 +41,12 @@
       }
     },
     render: function(message) {
-      this.$messageArea.text(message);
+      this.$messageArea.html('<h2>Message Sent</h2>' + message).show();
     },
     populateTemplate: function(event) {
       event.preventDefault();
+
+      if(this.$templateField.val() === "custom") { return };
 
       var template = JSON.parse(this.$templateField.val()),
           company = JSON.parse(this.$companyField.val()),
@@ -64,6 +68,13 @@
       }
 
       this.render(template.message);
+    },
+    toggleCustom: function(event) {
+      if(event.target.value === "custom") {
+        this.$customField.show();
+      } else {
+        this.$customField.hide();
+      }
     }
   };
 
