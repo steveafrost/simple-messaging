@@ -21,36 +21,29 @@
   {
     "id": 2,
     "name": "Restaurant Recommendations",
+    "message": "If you're looking for somewhere to eat #firstName, try out #company restaurant right downstairs in the lobby.",
     "parameters": {
-      "greeting": {
+      "#firstName": {
         "type": "string"
       },
-      "firstName": {
+      "#company": {
         "type": "string"
-      },
-      "company": {
-        "type": "string"
-      },
-      "roomNumber": {
-        "type": "integer"
       }
     }
   },
   {
     "id": 3,
     "name": "Checking Out",
+    "message": "Thanks for staying at #company, #firstName. Come back soon! We'll have Room #roomNumber ready anytime.",
     "parameters": {
-      "greeting": {
+      "#company": {
         "type": "string"
       },
-      "firstName": {
+      "#firstName": {
         "type": "string"
       },
-      "company": {
+      "#roomNumber": {
         "type": "string"
-      },
-      "roomNumber": {
-        "type": "integer"
       }
     }
   }

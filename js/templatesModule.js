@@ -31,12 +31,12 @@
       var currentTime = new Date().getHours();
 
       if (currentTime < 12) {
-        return "Good morning";
+        return 'Good morning';
       } else if (currentTime < 16) {
-        return "Good afternoon";
+        return 'Good afternoon';
       } else {
-        return "Good evening";
-      };
+        return 'Good evening';
+      }
     },
     render: function(message) {
       this.$messageArea.text(message);
@@ -46,25 +46,26 @@
 
       var template = JSON.parse(this.$templateField.val()),
           company = JSON.parse(this.$companyField.val()),
-          guest = JSON.parse(this.$guestField.val());
+          guest = JSON.parse(this.$guestField.val()),
           greeting = this.greeting();
 
-      for(parameter in template.parameters) {
+      for(var parameter in template.parameters) {
         var trimmedParam = parameter.substring(1);
 
         if(guest[trimmedParam]) {
           template.message = template.message.replace(parameter, guest[trimmedParam]);
+        } else if (guest['reservation'][trimmedParam]) {
+          template.message = template.message.replace(parameter, guest['reservation'][trimmedParam]);
         } else if (company[trimmedParam]) {
           template.message = template.message.replace(parameter, company[trimmedParam]);
         } else {
           template.message = template.message.replace(parameter, greeting);
         }
-
       }
 
-      this.render(template.message)
+      this.render(template.message);
     }
-  }
+  };
 
   templates.init();
 })();
